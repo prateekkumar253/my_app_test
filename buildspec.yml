@@ -6,9 +6,7 @@ phases:
       java: corretto8
   pre_build:
     commands:
-      - ssh -i /path/my-key-pair.pem my-instance-user-name@my-instance-IPv6-address
-      - 
+      - ssh -i window-test.pem ubuntu@3.82.243.55
   build:
     commands:
-     
       - echo "Done."
