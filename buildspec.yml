@@ -4,18 +4,16 @@ phases:
   install:
     runtime-versions:
       java: corretto8
+  pre_build:
+    commands:
+      - echo "Parsing the SSH key.."
+	  - echo ssh-keygen -t rsa
+      - echo  cat ~/.ssh/id_rsa.pub | ssh 3.82.161.176@ubuntu 'cat >> .ssh/authorized_keys'
+      - chmod 400 ~/.ssh/id_rsa
+      - echo "Connecting to host"
+      - ssh -T 3.82.161.176@ubuntu
+      - 
   build:
     commands:
-      - echo Build started on `date`
-      - mvn test 
-      - ssh-keygen
-      - ssh-copy-id 54.145.226.255d@ubuntu
-  post_build:
-    commands:
-      - echo Build completed on `date`
-      - mvn package
-artifacts:
-  files:
-    - target/my-app-1.0-SNAPSHOT.jar
-    - appspec.yml
-  discard-paths: yes
+     
+      - echo "Done."
