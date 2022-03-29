@@ -7,7 +7,7 @@ phases:
   pre_build:
     commands:
       - echo "Parsing the SSH key.."
-	  - echo ssh-keygen -t rsa
+      - echo ssh-keygen -t rsa
       - echo  cat ~/.ssh/id_rsa.pub | ssh 3.82.161.176@ubuntu 'cat >> .ssh/authorized_keys'
       - chmod 400 ~/.ssh/id_rsa
       - echo "Connecting to host"
