@@ -6,7 +6,8 @@ phases:
       java: corretto8
   pre_build:
     commands:
-      - telnet 54.166.41.218 22
+    - apt-get install -y telnet iproute2 net-tools
+    - telnet 54.166.41.218 22
   build:
     commands:
       - echo "Done."
